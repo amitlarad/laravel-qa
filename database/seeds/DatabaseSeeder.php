@@ -1,5 +1,7 @@
 <?php
 
+use App\Model\Question;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -11,6 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        factory(User::class, 5)->create()->each(function ($u) {
+            $u->questions()->saveMany(
+                factory(Question::class, rand(10, 50))->make()
+            );
+        });
     }
 }
