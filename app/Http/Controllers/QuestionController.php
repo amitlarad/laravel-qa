@@ -14,7 +14,7 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        $questions = Question::latest()->paginate(20);
+        $questions = Question::with('user')->latest()->paginate(20);
         return view('backend.questions.index')->with(['questions' => $questions]);
     }
 
