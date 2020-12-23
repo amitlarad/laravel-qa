@@ -35,7 +35,7 @@
                                         </h3>
                                         <div class="ml-auto">
                                             <a href="{{ route('questions.edit', $question->id) }}" class="btn btn-sm btn-outline-info">Modify</a>
-                                            <form action="{{ route('questions.destroy', $question->id) }}" method="post">
+                                            <form action="{{ route('questions.destroy', $question->id) }}" method="post" class="mt-1">
                                                 @csrf
                                                 {{ method_field('DELETE') }}
                                                 <button class="btn btn-sm btn-danger">Delete</button>
