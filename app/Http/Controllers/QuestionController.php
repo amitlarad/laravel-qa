@@ -53,7 +53,9 @@ class QuestionController extends Controller
      */
     public function show(Question $question)
     {
-        //
+        return view('backend.questions.show')->with([
+            'question' => $question
+        ]);
     }
 
     /**
